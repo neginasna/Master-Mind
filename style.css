@@ -63,10 +63,18 @@
 }
 
 .submit{
-    width: 200px;
-    height: 50px;
     margin-left: 20px;
     margin-top: 20px;
+}
+
+button{
+    width: 200px;
+    height: 40px;
+    cursor: pointer;
+    background-color: white;
+    border: 2px solid pink;
+    font-size: 14px;
+    
 }
 
 .blue{
