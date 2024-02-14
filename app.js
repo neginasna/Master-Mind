@@ -7,3 +7,11 @@ for(var i = 0 ; i < 44 ; i ++){
 
     peg.innerHTML += `<div class="pegcircle"></div>`
 }
+
+
+
+
+
+
+
+
