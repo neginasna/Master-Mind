@@ -10,30 +10,7 @@ for (var i = 0; i < 44; i++) {
 }
 
 
-
-
-
-
 $(document).ready(function () {
-
-    const possibleColors = ["blue", "green", "red", "yellow", "orange", "pink"]
-
-    const colors = {
-
-        "rgb(0, 128, 0)": "green",
-        "rgb(255, 255, 0)": "yellow",
-        "rgb(0, 0, 255)": "blue",
-        "rgb(255, 0, 0)": "red",
-        "rgb(0, 192, 203)": "pink",
-        "rgb(255, 165, 0)": "green"
-    }
-
-    const code = [
-        possibleColors[Math.floor(Math.random() * 6)],
-        possibleColors[Math.floor(Math.random() * 6)],
-        possibleColors[Math.floor(Math.random() * 6)],
-        possibleColors[Math.floor(Math.random() * 6)]
-];
 
     $(".color").each(function () {
         let color = $(this).attr("id");
@@ -58,30 +35,15 @@ $(document).ready(function () {
     });
 
 
-    // for(var i = 0 ; i <= 4 ; i++){
-    //     $(".code").each(function () {
+    $(".secretcolor").each(function(){
+        const possibleColors = ["blue", "green", "red", "yellow", "orange", "pink"];
 
-    //         const possibleColors = ["blue", "green", "red", "yellow", "orange", "pink"];
+        const secret = [
+            possibleColors[Math.floor(Math.random() * 6)],
+    ];
 
-    //         const code = [
-    //             possibleColors[Math.floor(Math.random() * 6)],
-    //             possibleColors[Math.floor(Math.random() * 6)],
-    //             possibleColors[Math.floor(Math.random() * 6)],
-    //             possibleColors[Math.floor(Math.random() * 6)]
-    //     ];
-
-      
-    //         $(this).css("background-color", code[i]);
-    //     });
-    // }
-
-
-    
-    $(".code").each(function () {
-        let color = $(".color").attr("id");
-        $(this).css("background-color", color);
+        $(this).css("background-color", secret)
     });
-   
 
 })
 
