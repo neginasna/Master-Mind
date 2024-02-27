@@ -85,6 +85,12 @@ $(document).ready(function () {
         // circleColorCreat.push(karbar);
     });
 
+    $("button").click(function(){
+        // updatePegs();
+        checkWin();
+        changeCurrentRow();
+    });
+
 
     function changeCurrentRow() {
 
@@ -108,31 +114,31 @@ $(document).ready(function () {
     }
 
 
-    // function isValid(getColor) {
+    function isValid(getColor) {
 
-    //     if (currentBoardCircles.includes(getColor) && hasWon === false) {
-    //         return true;
-    //     }
-    //     return false;
-    // }
+        if (currentBoardCircles.includes(getColor) && hasWon === false) {
+            return true;
+        }
+        return false;
+    }
 
-    // function checkWin() {
+    function checkWin() {
 
-    //     if(currentSecrets[0] === circle1Color &&
-    //         currentSecrets[1] === circle2Color &&
-    //         currentPegCircles[2] === circle3Color &&
-    //         currentSecrets[3] === circle4Color){
-    //             hasWon = true;
-    //             alert("Congratulation, You have Won\nThe code will now be displayed");
-    //             $(".color1").css("background-color", currentSecrets[0]);
-    //             $(".color2").css("background-color", currentSecrets[1]);
-    //             $(".color3").css("background-color", currentSecrets[2]);
-    //             $(".color4").css("background-color", currentSecrets[3]);
-    //         }
+        if(currentSecrets[0] === circle1Color &&
+            currentSecrets[1] === circle2Color &&
+            currentPegCircles[2] === circle3Color &&
+            currentSecrets[3] === circle4Color){
+                hasWon = true;
+                alert("Congratulation, You have Won\nThe code will now be displayed");
+                $(".color1").css("background-color", currentSecrets[0]);
+                $(".color2").css("background-color", currentSecrets[1]);
+                $(".color3").css("background-color", currentSecrets[2]);
+                $(".color4").css("background-color", currentSecrets[3]);
+            }
 
-    //         return hasWon;
+            return hasWon;
 
-    // }
+    }
 
     // var codeColor = $(".secretcolor.color1");
     //   var backColor = codeColor.css("background-color");
