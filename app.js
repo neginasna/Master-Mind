@@ -1,15 +1,3 @@
-// const board = document.querySelector('.fullboard');
-// const peg = document.querySelector('.pegs');
-// const secret = document.querySelector('.code');
-
-
-// for (let i = 1; i <= 44; i++) {
-
-// board.innerHTML += `<div class = "circle ${i}" ></div>`
-
-//     peg.innerHTML += `<div class="pegcircle ${i}"></div>`
-// }
-
 
 $(document).ready(function () {
     var current = "white";
@@ -141,7 +129,7 @@ $(document).ready(function () {
         $('.secret-cover').css('display', 'none')
 
         if (!flag) {
-            alert('win');
+           $('.modal').css('display', 'flex')
         } else {
             alert('failed');
         }
