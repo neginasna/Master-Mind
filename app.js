@@ -6,7 +6,7 @@ $(document).ready(function () {
     var currentRow = 11;
     var possibleColors = ["blue", "green", "red", "yellow", "orange", "pink"];
 
-    var circle1Color, circle2Color, circle3Color, circle4Color;
+    // var circle1Color, circle2Color, circle3Color, circle4Color;
 
     let currentColor = undefined;
     const userChoices = [];
@@ -41,10 +41,6 @@ $(document).ready(function () {
             console.log(currentSecrets);
             console.log(userChoices);
         }
-
-
-
-        
     }
 
     $(".secretcolor").each(function () {
@@ -137,6 +133,11 @@ $(document).ready(function () {
     })
 
 })
+
+
+
+
+
 
 
 
