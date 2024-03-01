@@ -42,7 +42,7 @@ $(document).ready(function () {
         const id = targetNode.id;
         const nodeNumber = id.substring(5);
         const targetRow = Math.ceil(nodeNumber / 4);
-        console.log(9999, nodeNumber);
+        
         $(targetNode).css('background-color', currentColor);
 
         const targetIndex = nodeNumber % 4;
