@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
     var current = "white";
     var currentBoardCircles = ["board41", "board42", "board43", "board44"];
@@ -6,10 +5,9 @@ $(document).ready(function () {
     var currentRow = 11;
     var possibleColors = ["blue", "green", "red", "yellow", "orange", "pink"];
 
-    // var circle1Color, circle2Color, circle3Color, circle4Color;
-
     let currentColor = undefined;
     const userChoices = [];
+    const pegArray = [];
 
 
     var colors = {
@@ -23,11 +21,28 @@ $(document).ready(function () {
 
     const currentSecrets = [];
 
+    function handlePegCircles(row, indexNo) {
+        if (indexNo === 0) {
+            targetArrayIndex = 3;
+        } else {
+            targetArrayIndex = indexNo - 1;
+        }
+
+        if (userChoices[targetArrayIndex] === currentSecrets[targetArrayIndex]) {
+            pegArray[targetArrayIndex] = 'black';
+        }// else {
+        //     pegArray[targetArrayIndex] = 'white';
+        // }
+
+        const targetPegNumber = indexNo ? (row - 1) * 4 + indexNo : row * 4;
+        $('.pegcircle#peg' + targetPegNumber).css('background-color', pegArray[targetArrayIndex]);
+    }
+
     function continueGame(targetNode) {
         const id = targetNode.id;
         const nodeNumber = id.substring(5);
-        const targetRow = Math.ceil(nodeNumber/4);
-        console.log(targetRow, nodeNumber, nodeNumber % 4, currentColor);
+        const targetRow = Math.ceil(nodeNumber / 4);
+        console.log(9999, nodeNumber);
         $(targetNode).css('background-color', currentColor);
 
         const targetIndex = nodeNumber % 4;
@@ -38,8 +53,8 @@ $(document).ready(function () {
             } else {
                 userChoices[targetIndex - 1] = currentColor;
             }
-            console.log(currentSecrets);
-            console.log(userChoices);
+
+            handlePegCircles(targetRow, targetIndex);
         }
     }
 
@@ -55,7 +70,7 @@ $(document).ready(function () {
     for (let i = 1; i <= 44; i++) {
         let circle = $(`<div class="circle" id="board${i}" ></div>`);
         $('.fullboard').append(circle);
-        circle.on('click', function() {
+        circle.on('click', function () {
             console.log(this);
             continueGame(this);
         })
@@ -67,7 +82,7 @@ $(document).ready(function () {
         $('.pegs').append(pegcircle);
     }
 
-
+    
     $('.fullboard').css('grid-template-rows', 'repeat(11, 1fr)');
     $('.fullboard').css('grid-template-columns', 'repeat(4, 1fr)');
 
@@ -89,20 +104,9 @@ $(document).ready(function () {
 
     });
 
-
-    // const circleColorCreat = [];
-
-    // $(".circle").click(function () {
-    //  $(this).attr("id");
-    
-    //  $(this).css("background-color", currentColor);
-  
-    // });
-
-
-    $(".circle").dblclick(function(){
+    $(".circle").dblclick(function () {
         $(this).css("background-color", 'white');
-    })   
+    })
 
     $(".btn-submit").click(function () {
         if (userChoices.length !== 4) {
@@ -118,14 +122,10 @@ $(document).ready(function () {
             }
         })
 
-        console.log(flag);
-
-        // userChoices = 
-
         $('.secret-cover').css('display', 'none')
 
         if (!flag) {
-           $('.modal').css('display', 'flex')
+            $('.modal').css('display', 'flex')
         } else {
             alert('failed');
         }
@@ -133,12 +133,3 @@ $(document).ready(function () {
     })
 
 })
-
-
-
-
-
-
-
-
-
